@@ -1,0 +1,36 @@
+/* tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* flex居中 */
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+/* 绝对定位居中 */
+.abs-center {
+  @apply absolute left-1/2 top-1/2;
+  transform: translate(-50%, -50%);
+}
+
+@layer base {
+  h1 {
+    @apply text-[0.3rem] font-bold;
+  }
+  h2 {
+    @apply text-[0.26rem] font-bold;
+  }
+  h3 {
+    @apply text-[0.22rem] font-bold;
+  }
+  h4 {
+    @apply text-[0.18rem] font-bold;
+  }
+  h5 {
+    @apply text-[0.16rem] font-bold;
+  }
+  h6 {
+    @apply text-[0.14rem] font-bold;
+  }
+}

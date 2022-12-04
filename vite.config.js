@@ -42,7 +42,12 @@ export default defineConfig({
     },
 
     postcss: {
-      plugins: [postcsspxtoviewport(getUiVw(1280, 'pm')), postcsspxtoviewport(getUiVw(1920, 'pw'))],
+      plugins: [
+        postcsspxtoviewport(getUiVw(1280, 'pm')),
+        postcsspxtoviewport(getUiVw(1920, 'pw')),
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
     },
   },
   resolve: {
@@ -53,9 +58,7 @@ export default defineConfig({
       '@img': path.resolve(__dirname, './src/assets/img'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
       '@store': path.resolve(__dirname, './src/store'),
-      '@contApi': path.resolve(__dirname, './src/contractsApi'),
       '@tools': path.resolve(__dirname, './src/utils/tools'),
-      '@bpMath': path.resolve(__dirname, './src/utils/bpMath'),
     },
 
     // import时省略后缀

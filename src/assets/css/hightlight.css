@@ -1,0 +1,11 @@
+pre {
+  background-color: #262c34;
+  padding: 0.08rem 0.2rem;
+  border-radius: 0.05rem;
+  color: #a8b2bf;
+}
+
+.hljs-keyword {
+  color: #00b1f1;
+  font-weight: bold;
+}

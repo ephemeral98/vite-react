@@ -1,0 +1,23 @@
+/* 浅色主题 */
+body.theme-light {
+  --color1: #fff;
+  --color2: #f0f0f0;
+  --third: #e61d6d;
+  --inverse: #7c54e1;
+}
+
+/* 深色主题 */
+body.theme-dark {
+  --color1: #000;
+  --secondary: #6a1497;
+  --third: #e61d6d;
+  --inverse: #7c54e1;
+}
+
+/* 护眼主题 */
+body.theme-green {
+  --color1: #b1d5c8;
+  --secondary: #6a1497;
+  --third: #e61d6d;
+  --inverse: #7c54e1;
+}

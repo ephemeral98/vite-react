@@ -4,12 +4,12 @@ import { useCallback, useEffect, useState } from 'react';
  * 类似vue的nextTick，页面渲染前的临门一脚
  * @param callBack
  */
-export const useNextTick = (callBack: () => void) => {
+export const useNextTick = (callBack: () => void, deps?) => {
   useEffect(() => {
     setTimeout(() => {
       callBack();
     }, 0);
-  }, []);
+  }, [deps]);
 };
 
 /**

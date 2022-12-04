@@ -1,0 +1,4 @@
+/* 除去顶部栏的主区域高度 */
+.main-full {
+  height: calc(100vh - 50px);
+}
