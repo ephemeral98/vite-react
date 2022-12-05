@@ -6,6 +6,8 @@ import pluginGfm from '@bytemd/plugin-gfm';
 import { Editor } from '@bytemd/react';
 import zh from '@bytemd/react/node_modules/bytemd/locales/zh_Hans.json';
 import 'bytemd/dist/index.css';
+import { useDebounce } from '@/hooks/gHooks';
+import GPop from '../GPop';
 
 const MarkDownEditWrap = styled.div`
   display: flex;
@@ -22,6 +24,8 @@ const MarkDownEditWrap = styled.div`
 `;
 
 export default () => {
+  const debAutoSave = useDebounce();
+  const [showPublishPop, setShowPublishPop] = useState<boolean>();
   const [value, setValue] = useState('');
   const plugins = useMemo(() => [pluginGfm(), highlight()], []);
   /**
@@ -30,9 +34,14 @@ export default () => {
   const doPublish = () => {
     const countNum = document.querySelector('.bytemd-status-left strong');
     console.log('字数：', countNum.textContent);
+    setShowPublishPop(true);
+  };
 
-    console.log('发布');
-    console.log(value);
+  /**
+   * 自动保存
+   */
+  const doAutoSave = () => {
+    console.log('保存');
   };
 
   return (
@@ -53,8 +62,20 @@ export default () => {
         }}
         onChange={(v) => {
           setValue(v);
+          debAutoSave(() => {
+            doAutoSave();
+          }, 1000);
         }}
       />
+
+      <GPop
+        show={showPublishPop}
+        hide={() => {
+          setShowPublishPop(false);
+        }}
+      >
+        hello, world
+      </GPop>
     </MarkDownEditWrap>
   );
 };

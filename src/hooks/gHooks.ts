@@ -33,3 +33,23 @@ export const useSyncCallback = (callback: () => void) => {
 
   return Func;
 };
+
+/**
+ * 防抖
+ * @param cb 回调函数
+ * @param duration 防抖间隔时间
+ */
+export const useDebounce = () => {
+  const [debounceTimer, setDeBounceTimer] = useState(null);
+
+  return (cb: () => void, duration: number) => {
+    if (debounceTimer) {
+      clearTimeout(debounceTimer);
+    }
+    setDeBounceTimer(
+      setTimeout(() => {
+        cb();
+      }, duration)
+    );
+  };
+};
