@@ -8,6 +8,7 @@ import zh from '@bytemd/react/node_modules/bytemd/locales/zh_Hans.json';
 import 'bytemd/dist/index.css';
 import { useDebounce } from '@/hooks/gHooks';
 import GPop from '../GPop';
+import PublishPop from './PublishPop';
 
 const MarkDownEditWrap = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ const MarkDownEditWrap = styled.div`
 
 export default () => {
   const debAutoSave = useDebounce();
-  const [showPublishPop, setShowPublishPop] = useState<boolean>();
+  const [showPublishPop, setShowPublishPop] = useState<boolean>(true);
   const [value, setValue] = useState('');
   const plugins = useMemo(() => [pluginGfm(), highlight()], []);
   /**
@@ -74,7 +75,7 @@ export default () => {
           setShowPublishPop(false);
         }}
       >
-        hello, world
+        <PublishPop />
       </GPop>
     </MarkDownEditWrap>
   );
